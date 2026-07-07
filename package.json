@@ -1,5 +1,5 @@
 {
-  "homepage": "https://muneeb9610.github.io/portfolio",
+  "homepage": "https://muneeb9610/portfolio",
   "scripts": {
     "deploy": "gh-pages -d portfolio"
   },
