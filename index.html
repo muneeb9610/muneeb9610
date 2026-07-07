@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muneeb Ur Rehman | Software Engineer</title>
+<meta name="description" content="Muneeb Ur Rehman is a software engineer who builds full-stack, cloud-native, and AI-powered products across web, mobile, and desktop.">
+<style>
+  :root{
+    --font: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* ===== LIGHT THEME (default) ===== */
+  body.theme-light{
+    --bg: #f7f8fa;
+    --bg-alt: #ffffff;
+    --text: #1b1f24;
+    --text-muted: #55606b;
+    --accent: #2563eb;
+    --accent-soft: #e8effe;
+    --border: #e3e6ea;
+    --chip-bg: #eef2f7;
+    --chip-text: #2b3440;
+    --shadow: 0 1px 3px rgba(20,20,30,0.06), 0 8px 24px rgba(20,20,30,0.04);
+  }
+
+  /* ===== DARK THEME ===== */
+  body.theme-dark{
+    --bg: #0d1117;
+    --bg-alt: #161b22;
+    --text: #e6edf3;
+    --text-muted: #9aa7b4;
+    --accent: #58a6ff;
+    --accent-soft: #142033;
+    --border: #232a34;
+    --chip-bg: #1c2330;
+    --chip-text: #c8d3de;
+    --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  /* ===== MONOCHROME THEME ===== */
+  body.theme-mono{
+    --bg: #ffffff;
+    --bg-alt: #f2f2f2;
+    --text: #111111;
+    --text-muted: #565656;
+    --accent: #111111;
+    --accent-soft: #eaeaea;
+    --border: #d4d4d4;
+    --chip-bg: #ececec;
+    --chip-text: #1a1a1a;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 20px rgba(0,0,0,0.06);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    transition: background .25s ease, color .25s ease;
+    line-height: 1.6;
+  }
+
+  a{ color: var(--accent); text-decoration: none; }
+  a:hover{ text-decoration: underline; }
+
+  .wrap{ max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---- Top nav / theme switch ---- */
+  .topbar{
+    position: sticky; top: 0; z-index: 50;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner{
+    max-width: 880px; margin: 0 auto; padding: 14px 24px;
+    display:flex; align-items:center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+  }
+  .brand{ font-weight: 700; font-size: 15px; letter-spacing: .2px; }
+  .theme-switch{ display:flex; gap:6px; background: var(--bg-alt); border:1px solid var(--border); padding:4px; border-radius: 999px; }
+  .theme-switch button{
+    border:none; background: transparent; color: var(--text-muted);
+    font-size: 13px; padding: 6px 12px; border-radius: 999px; cursor:pointer;
+    font-family: var(--font); transition: all .15s ease;
+  }
+  .theme-switch button.active{ background: var(--accent); color: #fff; }
+  body.theme-mono .theme-switch button.active{ color:#fff; }
+
+  /* ---- Hero ---- */
+  .hero{ padding: 64px 0 40px; }
+  .hero-top{ display:flex; align-items:center; gap: 22px; flex-wrap: wrap; }
+  .avatar{
+    width: 96px; height: 96px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--accent), var(--text));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:700; font-size: 30px; letter-spacing: 1px;
+    box-shadow: var(--shadow); border: 3px solid var(--bg-alt);
+  }
+  .hero h1{ font-size: 34px; margin: 0 0 6px; letter-spacing: -0.5px; }
+  .hero .role{ font-size: 17px; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+  .hero .headline{ font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px; }
+  .hero p.summary{ color: var(--text-muted); font-size: 15.5px; max-width: 680px; margin-top: 20px; }
+
+  .contact-row{ display:flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 20px; font-size: 14px; color: var(--text-muted); }
+  .contact-row a{ color: var(--text); }
+  .contact-row span{ display:inline-flex; align-items:center; gap:6px; }
+
+  .cta-row{ margin-top: 24px; display:flex; gap: 12px; flex-wrap: wrap; }
+  .btn{
+    display:inline-block; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600;
+    border: 1px solid var(--accent);
+  }
+  .btn.primary{ background: var(--accent); color:#fff; }
+  .btn.primary:hover{ text-decoration:none; opacity:.9; }
+  .btn.ghost{ color: var(--text); border-color: var(--border); }
+  .btn.ghost:hover{ text-decoration:none; border-color: var(--accent); }
+
+  /* ---- Sections ---- */
+  section{ padding: 36px 0; border-top: 1px solid var(--border); }
+  section h2{ font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--text-muted); margin: 0 0 20px; }
+
+  /* Skills */
+  .skills-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 18px; }
+  .skill-card{ background: var(--bg-alt); border:1px solid var(--border); border-radius: 10px; padding: 16px 18px; box-shadow: var(--shadow); }
+  .skill-card h3{ margin:0 0 10px; font-size: 13.5px; color: var(--text); }
+  .chip-row{ display:flex; flex-wrap: wrap; gap: 6px; }
+  .chip{ background: var(--chip-bg); color: var(--chip-text); font-size: 12.5px; padding: 5px 10px; border-radius: 6px; }
+
+  /* Projects */
+  .projects-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 18px; }
+  .project-card{ background: var(--bg-alt); border:1px solid var(--border); border-radius: 10px; padding: 18px 20px; box-shadow: var(--shadow); }
+  .project-card h3{ margin: 0 0 6px; font-size: 15px; }
+  .project-card .project-meta{ font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+  .project-card p{ margin: 0; font-size: 13.5px; color: var(--text-muted); }
+
+  /* Experience */
+  .job{ margin-bottom: 30px; }
+  .job:last-child{ margin-bottom: 0; }
+  .job-head{ display:flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+  .job-title{ font-size: 16.5px; font-weight: 700; }
+  .job-date{ font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+  .job-company{ color: var(--accent); font-weight: 600; font-size: 14px; margin-bottom: 10px; }
+  .job ul{ margin: 8px 0 0; padding-left: 20px; color: var(--text-muted); font-size: 14.5px; }
+  .job li{ margin-bottom: 6px; }
+
+  /* Education */
+  .edu-item{ margin-bottom: 22px; }
+  .edu-item:last-child{ margin-bottom: 0; }
+  .edu-head{ display:flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+  .edu-degree{ font-weight: 700; font-size: 15.5px; }
+  .edu-date{ font-size: 13px; color: var(--text-muted); }
+  .edu-school{ color: var(--accent); font-weight: 600; font-size: 13.5px; margin-bottom: 6px; }
+  .edu-detail{ color: var(--text-muted); font-size: 14px; }
+  .edu-detail b{ color: var(--text); font-weight: 600; }
+
+  /* Certifications */
+  .cert-list{ list-style: none; padding:0; margin:0; display:flex; flex-direction: column; gap: 10px; }
+  .cert-list li{
+    background: var(--bg-alt); border:1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px; font-size: 14.5px; box-shadow: var(--shadow);
+  }
+  .cert-list li b{ display:block; font-size: 14.5px; margin-bottom: 2px;}
+  .cert-list li span{ color: var(--text-muted); font-size: 13px; }
+
+  /* Footer / contact */
+  footer{ padding: 40px 0 60px; border-top: 1px solid var(--border); text-align:center; }
+  footer h2{ font-size: 20px; color: var(--text); margin: 0 0 8px; text-transform:none; letter-spacing:0; }
+  footer p{ color: var(--text-muted); font-size: 14.5px; margin: 0 0 20px; }
+  .footer-links{ display:flex; justify-content:center; gap: 14px; flex-wrap: wrap; }
+  .foot-small{ margin-top: 30px; font-size: 12.5px; color: var(--text-muted); }
+
+  @media (max-width: 560px){
+    .hero h1{ font-size: 27px; }
+    .hero{ padding-top: 44px; }
+  }
+</style>
+</head>
+<body class="theme-light">
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Muneeb Ur Rehman</div>
+      <div class="theme-switch" role="group" aria-label="Theme switcher">
+        <button data-theme="light" class="active">Light</button>
+        <button data-theme="dark">Dark</button>
+        <button data-theme="mono">Monochrome</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section class="hero" style="border-top:none;">
+      <div class="hero-top">
+        <div class="avatar" aria-hidden="true">MR</div>
+        <div>
+          <h1>Muneeb Ur Rehman</h1>
+          <div class="role">Software Engineer building full-stack, cloud-native &amp; AI products</div>
+          <div class="headline">React Native | React.js | Microsoft Python Certified | ML/DL &amp; Data Science Enthusiast</div>
+        </div>
+      </div>
+      <p class="summary">
+        I'm a software engineer who likes turning ideas into products people actually enjoy using.
+        Over the past five-plus years I've worked across the full stack, building web, mobile, and
+        desktop applications with React, Node.js, C#, and Python. I've touched everything from banking
+        apps and marketplaces to cinema ad platforms, and I always try to focus on the details that
+        make a feature feel genuinely useful, not just functional.
+      </p>
+      <p class="summary">
+        Outside of pure development, I've grown a real interest in DevOps and reliability. I enjoy
+        working with Kubernetes, setting up CI/CD pipelines with GitHub Actions, and shaping cloud
+        architecture so deployments feel calm instead of chaotic. I also hold a Diploma in Artificial
+        Intelligence and have hands-on experience with Retrieval-Augmented Generation (RAG), including
+        vector embeddings, semantic search, and LLM integration.
+      </p>
+
+      <div class="contact-row">
+        <span>📍 Novi, Michigan · Detroit Metropolitan Area, USA</span>
+        <span>📞 <a href="tel:+17342013706">(734) 201-3706</a></span>
+        <span>✉️ <a href="mailto:muneeb9610@gmail.com">muneeb9610@gmail.com</a></span>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn primary" href="https://www.linkedin.com/in/muneeb-ur-rehman-a705165a/" target="_blank" rel="noopener">View LinkedIn</a>
+        <a class="btn ghost" href="mailto:muneeb9610@gmail.com">Email Me</a>
+        <a class="btn ghost" href="tel:+17342013706">Call</a>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <div class="chip-row">
+            <span class="chip">React</span><span class="chip">React Native</span>
+            <span class="chip">Angular</span><span class="chip">Redux</span>
+            <span class="chip">TypeScript</span><span class="chip">Electron</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Backend</h3>
+          <div class="chip-row">
+            <span class="chip">Node.js</span><span class="chip">ASP.NET</span>
+            <span class="chip">GraphQL</span><span class="chip">Python</span>
+            <span class="chip">C#</span><span class="chip">PHP/Laravel</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Cloud &amp; DevOps</h3>
+          <div class="chip-row">
+            <span class="chip">AWS Lambda</span><span class="chip">Kubernetes</span>
+            <span class="chip">Helm</span><span class="chip">Flux CD</span>
+            <span class="chip">Docker</span><span class="chip">Terraform</span>
+            <span class="chip">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Databases</h3>
+          <div class="chip-row">
+            <span class="chip">SQL Server</span><span class="chip">MS SQL</span>
+            <span class="chip">PostgreSQL</span><span class="chip">Firebase</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>ML / AI</h3>
+          <div class="chip-row">
+            <span class="chip">TensorFlow</span><span class="chip">Keras</span>
+            <span class="chip">NLP</span><span class="chip">Deep Learning</span>
+            <span class="chip">RAG / LLM Integration</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Other Tools</h3>
+          <div class="chip-row">
+            <span class="chip">Apache Kafka</span><span class="chip">MongoDB</span>
+            <span class="chip">Laravel</span><span class="chip">Android Development</span>
+            <span class="chip">Microsoft Office / Excel</span><span class="chip">Git</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Cinemataztic Platform Modules</h3>
+          <div class="project-meta">TEO International</div>
+          <p>Built cinema-facing modules for ad delivery, on-screen greetings, and interactive games using React, Electron, and Node.js.</p>
+        </div>
+        <div class="project-card">
+          <h3>Digital Banking Features for AionDigital</h3>
+          <div class="project-meta">Aion Digital · Frontend Web Developer</div>
+          <p>Helped build secure banking features, including fund transfers, beneficiary management, and account statements, with a strong focus on transaction integrity and compliance.</p>
+        </div>
+        <div class="project-card">
+          <h3>Marketplace Platform</h3>
+          <div class="project-meta">CodeJunkie Pvt. Ltd.</div>
+          <p>Built merchant and consumer mobile apps for a marketplace platform, covering product listings, search, and the full order flow, on a microservices backend.</p>
+        </div>
+        <div class="project-card">
+          <h3>Medical Diagnosis Chatbot</h3>
+          <div class="project-meta">Bahria University · Final-Year Project · Best Project Award</div>
+          <p>An AI-powered chatbot for preliminary medical diagnosis, built on the Rasa stack. It won Best Final Year Project at Open House 2019.</p>
+        </div>
+        <div class="project-card">
+          <h3>Hydration &amp; Wellness Android App</h3>
+          <div class="project-meta">Cord Stones Pvt. Ltd. · Android Developer Intern</div>
+          <p>An Android app that tracks water intake and sends hydration reminders, with OCR for automatic data capture and a blue-light filter to ease eye strain.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Professional Experience</h2>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Associate Principal Software Engineer</div>
+          <div class="job-date">Dec 2023 to Present</div>
+        </div>
+        <div class="job-company">TEO International · Full-time</div>
+        <ul>
+          <li>Lead full-stack design and delivery of web and desktop features for the Cinemataztic platform, working directly on the functionality customers use every day.</li>
+          <li>Build out new modules for ad delivery, interactive greetings, and in-app games, growing what the platform can do and how engaged customers are with it.</li>
+          <li>Set up integration tests and CI/CD pipelines with GitHub Actions, Helm, and Kubernetes, which made deployments more reliable and cut down on rollbacks.</li>
+          <li>Coordinate sprint planning and task allocation in our Agile process, helping the team hit milestones more consistently.</li>
+          <li>Own features end to end across the stack, from UI components in React and Electron through to backend services in Node.js.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Senior Software Engineer</div>
+          <div class="job-date">Jan 2022 to Dec 2023</div>
+        </div>
+        <div class="job-company">TEO International</div>
+        <ul>
+          <li>Built and maintained frontend and backend components in React, TypeScript, Angular, and Node.js, with an eye toward keeping the UI scalable and easy to maintain.</li>
+          <li>Integrated distributed services and third-party APIs so data moved smoothly across applications.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Software Engineer</div>
+          <div class="job-date">Nov 2019 to Jan 2022</div>
+        </div>
+        <div class="job-company">CodeJunkie · Full-time · Islamabad, Pakistan</div>
+        <ul>
+          <li>Designed and built scalable, distributed systems on a microservices architecture.</li>
+          <li>Built full-stack applications: React on the frontend, and Node.js and .NET (C#) microservices on the backend, including REST APIs and authentication.</li>
+          <li>Used Apache Kafka for event-driven communication between services, which let us process data asynchronously and keep the system decoupled and scalable.</li>
+          <li>Designed and optimized relational SQL databases, focusing on query design, indexing, and keeping data consistent across distributed systems.</li>
+          <li>Containerized applications with Docker, orchestrated deployments with Kubernetes, and built CI/CD pipelines with GitHub Actions across multiple environments.</li>
+          <li>Deployed and managed services on AWS and GCP, and helped build a marketplace platform with merchant and consumer mobile apps for listings, search, and order flows.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Frontend Web Developer</div>
+          <div class="job-date">Dec 2019 to Jul 2020</div>
+        </div>
+        <div class="job-company">Aion Digital · Contract</div>
+        <ul>
+          <li>Delivered secure banking features, including fund transfers, beneficiary management, and account statements, with a focus on transaction integrity and compliance.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Android Developer Intern</div>
+          <div class="job-date">Jul 2018 to Sep 2018</div>
+        </div>
+        <div class="job-company">Cord Stones Pvt. Ltd. · Islamabad, Pakistan</div>
+        <ul>
+          <li>Built Android features in Java to track water intake and send hydration reminders, helping users stick to their daily health goals.</li>
+          <li>Added OCR (optical character recognition) to pull text from images automatically, cutting down on manual data entry.</li>
+          <li>Built a blue-light filter to ease eye strain during longer app sessions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="edu-item">
+        <div class="edu-head">
+          <div class="edu-degree">Diploma in Artificial Intelligence</div>
+          <div class="edu-date">Sep 2019 to Feb 2021</div>
+        </div>
+        <div class="edu-school">PIAIC</div>
+        <div class="edu-detail"><b>Coursework:</b> Python (OOP &amp; Functional), Linear Algebra &amp; Statistics, Data Science, Deep Learning (Keras &amp; TensorFlow), Docker &amp; Containerization, Python Microservices, Linux &amp; Bash, Git.</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-head">
+          <div class="edu-degree">BS in Information Technology</div>
+          <div class="edu-date">Sep 2015 to Aug 2019</div>
+        </div>
+        <div class="edu-school">Bahria University, Islamabad, Pakistan · Grade: 3.7</div>
+        <div class="edu-detail"><b>Coursework:</b> Data Structures &amp; Algorithms, OOP, Mobile App Development, Web Engineering, DBMS, Cloud Computing, Artificial Intelligence, System Analysis &amp; Design.</div>
+        <div class="edu-detail" style="margin-top:6px;"><b>Honors:</b> IT Department Gold Medal (Apr 2020), Merit-Based Scholarship (4 semesters), Best Final Year Project at Open House 2019, and IEEE Member.</div>
+        <div class="edu-detail" style="margin-top:6px;"><b>Final-Year Project:</b> A medical diagnosis chatbot built on the Rasa stack, an AI conversational agent that helps with preliminary diagnosis through natural language conversation.</div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <ul class="cert-list">
+        <li>
+          <b>Complete Guide to Protocol Buffers 3 (Java, Golang, Python)</b>
+          <span>Udemy · Issued Mar 2022</span>
+        </li>
+        <li>
+          <b>Neural Networks and Deep Learning</b>
+          <span>Coursera · Issued Jun 2020</span>
+        </li>
+        <li>
+          <b>Microsoft Technology Associate: Introduction to Programming Using Python</b>
+          <span>Microsoft · Issued Mar 2020</span>
+        </li>
+        <li>
+          <b>AI For Everyone</b>
+          <span>Coursera · Issued Nov 2019</span>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <h2>Let's Connect</h2>
+      <p>Open to full-stack, cloud-native, and AI/RAG engineering opportunities.</p>
+      <div class="footer-links">
+        <a class="btn primary" href="https://www.linkedin.com/in/muneeb-ur-rehman-a705165a/" target="_blank" rel="noopener">LinkedIn Profile</a>
+        <a class="btn ghost" href="mailto:muneeb9610@gmail.com">muneeb9610@gmail.com</a>
+        <a class="btn ghost" href="tel:+17342013706">(734) 201-3706</a>
+      </div>
+      <div class="foot-small">Novi, Michigan · Detroit Metropolitan Area, USA · © 2026 Muneeb Ur Rehman</div>
+    </div>
+  </footer>
+
+<script>
+  (function(){
+    var body = document.body;
+    var buttons = document.querySelectorAll('.theme-switch button');
+    var themeMap = { light: 'theme-light', dark: 'theme-dark', mono: 'theme-mono' };
+
+    function applyTheme(key){
+      body.classList.remove('theme-light','theme-dark','theme-mono');
+      body.classList.add(themeMap[key] || 'theme-light');
+      buttons.forEach(function(b){
+        b.classList.toggle('active', b.getAttribute('data-theme') === key);
+      });
+      try{ localStorage.setItem('portfolio-theme', key); }catch(e){}
+    }
+
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        applyTheme(btn.getAttribute('data-theme'));
+      });
+    });
+
+    var saved;
+    try{ saved = localStorage.getItem('portfolio-theme'); }catch(e){}
+    if(saved && themeMap[saved]){
+      applyTheme(saved);
+    } else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+      applyTheme('dark');
+    }
+  })();
+</script>
+
+</body>
+</html>
