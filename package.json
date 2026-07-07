@@ -1,0 +1,9 @@
+{
+  "homepage": "https://muneeb9610.github.io/portfolio",
+  "scripts": {
+    "deploy": "gh-pages -d portfolio"
+  },
+  "dependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
